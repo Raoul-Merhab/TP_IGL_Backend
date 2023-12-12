@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ```
 - Executer la commande suivante pour lancer l'application:
 ```
-uvicorn main:app --reload
+python main.py
 ```
 ## Conventions de code:
 - A la fin, si vous avez utilisé une bibliothèque qui n'a pas été deja installée, donc vouz avez du utiliser la commande
@@ -42,9 +42,10 @@ git push origin "prenom/fonctionnalité"
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pour que le main reste clean et stable.
 ## Structure des dossiers du projet:
-- **models**: pour les entités
-- **controllers**: pour les controlleurs
-- **tests**: pour les tests unitaires
-- **routes**: pour regrouper les endpoints
+- **models**: pour les entités.
+- **controllers**: pour les controlleurs.
+- **tests**: pour les tests unitaires.
+- **routes**: pour regrouper les endpoints.
+- **validators**: pour les classes utilisés dans la validation des données dans les requetes.
 
 [Miniconda]: <https://docs.conda.io/projects/miniconda/en/latest/>

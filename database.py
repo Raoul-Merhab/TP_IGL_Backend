@@ -5,7 +5,7 @@ from os import getenv
 
 load_dotenv()
 
-engine = create_engine(f"postgresql://{getenv("DB_USER")}:{getenv("DB_PASSWORD")}@{getenv("DB_HOST")}/{getenv("DB_NAME")}",
+engine = create_engine(f'mysql+pymysql://{getenv("DB_USER")}:{getenv("DB_PASSWORD")}@{getenv("DB_HOST")}:{getenv("DB_PORT")}/{getenv("DB_NAME")}',
     echo=True
 )
 
