@@ -47,5 +47,6 @@ git push origin "prenom/fonctionnalité"
 - **tests**: pour les tests unitaires.
 - **routes**: pour regrouper les endpoints.
 - **validators**: pour les classes utilisés dans la validation des données dans les requetes.
+- **utils**: pour les fonctions generales utilisés partout et les credentials.
 
 [Miniconda]: <https://docs.conda.io/projects/miniconda/en/latest/>
