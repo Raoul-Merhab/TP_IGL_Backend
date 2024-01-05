@@ -1,10 +1,17 @@
 import uvicorn
 from fastapi import FastAPI
 from routes import router
+from routes import Article
+
+
 
 app = FastAPI()
 
+
+##app.include_router(router=router)
 app.include_router(router=router)
+
+
 
 @app.get("/")
 def read_root():
