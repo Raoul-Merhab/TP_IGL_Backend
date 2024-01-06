@@ -9,28 +9,29 @@ from utils.HTTPResponse import HTTPResponse
 class Article_Favori():
 
     def addToFavorites(article_id: int, utilisateur_id: int, db: Session = Depends(get_db)):
-        try:
-            # Check if the entry already exists
-            existing_favorite = db.query(Article_Favori).filter(
-                Article_Favori.ID_Article == article_id,
-                Article_Favori.ID_Compte == utilisateur_id
+      try:
+            # check if the article exists in the database
+         existing_favorite = db.query(Article_Favori).filter(
+         Article_Favori.ID_Article == article_id,
+         Article_Favori.ID_Compte == utilisateur_id
             ).first()
 
-            if existing_favorite:
+         if existing_favorite:
                 # Article is already in favorites
                 response_body = {"message": "Article already in favorites"}
                 return JSONResponse(content=response_body, status_code=200)
 
-            # Article is not in favorites, add it
-            nouvel_article_favori = Article_Favori(ID_Article=article_id, ID_Compte=utilisateur_id)
-            db.add(nouvel_article_favori)
-            db.commit()
-            db.refresh(nouvel_article_favori)
+         else: 
+             # Article is not in favorites, add it 
+             nouvel_article_favori = Article_Favori(ID_Article=article_id, ID_Compte=utilisateur_id)
+             db.add(nouvel_article_favori)
+             db.commit()
+             db.refresh(nouvel_article_favori)
 
-            response_body = {"message": "Article ajouté aux favoris"}
-            return JSONResponse(content=response_body, status_code=200)
+             response_body = {"message": "Article ajouté aux favoris"}
+             return JSONResponse(content=response_body, status_code=200)
 
-        except Exception as e:
+      except Exception as e:
             logging.error(f"Error in addToFavorites: {e}")
             raise HTTPException(status_code=500, detail="article non ajoute")
 
